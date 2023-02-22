@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Player V/S CPU</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="encabezado">
+    <span>Gato</span>
+    <div class="reglas">
+      <span class="titulo">Instrucciones</span>
+      <span class="texto">Toca los símbolos <ion-icon style="color:darkkhaki;" name="medical"></ion-icon> para poder rellenarlo con un <ion-icon style="color:aquamarine;" name="ellipse-outline"></ion-icon> en caso de ser el jugador 1, o con un <ion-icon style="color:tomato;" name="close-outline"></ion-icon> en caso de ser el jugador 2.</span>
+    </div>
+  </div>
+  <div class="board">
+    <span class="turno">Turno del <span class="turno-jugador-{{icon}}">Jugador {{turn}} ({{icon}})</span></span>
+    <div class="tabla">
+      <section class="columna">
+        <div (click)="play(0, 0)" class="col-item unselected jugador-{{board[0][0]}}" id="1">
+          {{board[0][0]}}
+        </div>
+        <div (click)="play(0, 1)" class="col-item unselected jugador-{{board[0][1]}}" id="2">
+          {{board[0][1]}}
+        </div>
+        <div (click)="play(0, 2)" class="col-item unselected jugador-{{board[0][2]}}" id="3">
+          {{board[0][2]}}
+        </div>
+      </section>
+      <section class="columna">
+        <div (click)="play(1, 0)" class="col-item unselected jugador-{{board[1][0]}}" id="4">
+          {{board[1][0]}}
+        </div>
+        <div (click)="play(1, 1)" class="col-item unselected jugador-{{board[1][1]}}" id="5">
+          {{board[1][1]}}
+        </div>
+        <div (click)="play(1, 2)" class="col-item unselected jugador-{{board[1][2]}}" id="6">
+          {{board[1][2]}}
+        </div>
+      </section>
+      <section class="columna">
+        <div (click)="play(2, 0)" class="col-item unselected jugador-{{board[2][0]}}" id="7">
+          {{board[2][0]}}
+        </div>
+        <div (click)="play(2, 1)" class="col-item unselected jugador-{{board[2][1]}}" id="8">
+          {{board[2][1]}}
+        </div>
+        <div (click)="play(2, 2)" class="col-item unselected jugador-{{board[2][2]}}" id="9">
+          {{board[2][2]}}
+        </div>
+      </section>
+    </div>
+  </div>
+</ion-content>

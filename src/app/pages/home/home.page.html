@@ -1,0 +1,135 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Tic Tac Toe</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <main>
+    <h1>Tic Tac Toe</h1>
+    <img src="../../../assets/images/icon.png">
+    <div class="game-options">
+      <ion-button id="chooseDifficulty" class="vs-cpu" expand="block" fill="clear" shape="round">
+        Against CPU
+      </ion-button>
+      <div class="pvp-container">
+        <span class="title">Or Against Another User?</span>
+        <ion-button id="createRoom" expand="block" fill="clear" shape="round">
+          Create Room
+        </ion-button>
+        <ion-button expand="block" fill="clear" shape="round">
+          Join Room
+        </ion-button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal -->
+  <ion-modal #chooseDifficulty class="chooseDifficulty" trigger="chooseDifficulty">
+    <ng-template>
+      <ion-content>
+        <ion-toolbar>
+          <ion-title>Options</ion-title>
+        </ion-toolbar>
+        <ion-list class="ion-padding">
+          <section class="modal-input ion-padding">
+            <span>Difficulty</span>
+            <ion-segment [(ngModel)]="difficulty" class="difficulty" value="easy">
+              <ion-segment-button value="easy">
+                <ion-label>
+                  <img src="../../../assets/images/easy.png">
+                  <span>Easy</span>
+                </ion-label>
+              </ion-segment-button>
+              <ion-segment-button value="medium">
+                <ion-label>
+                  <img src="../../../assets/images/medium.png">
+                  <span>Medium</span>
+                </ion-label>
+              </ion-segment-button>
+              <ion-segment-button value="hard">
+                <ion-label>
+                  <img src="../../../assets/images/hard.png">
+                  <span>Hard</span>
+                </ion-label>
+              </ion-segment-button>
+            </ion-segment>
+          </section>
+          <section class="modal-input ion-padding">
+            <span>Symbol</span>
+            <ion-segment [(ngModel)]="symbol" class="symbol" value="x">
+              <ion-segment-button value="x">
+                <ion-label class="symbol-option" style="color: var(--ion-color-danger)">
+                  X
+                </ion-label>
+              </ion-segment-button>
+              <ion-segment-button value="o">
+                <ion-label class="symbol-option" style="color: var(--ion-color-primary)">
+                  O
+                </ion-label>
+              </ion-segment-button>
+            </ion-segment>
+          </section>
+          <section class="modal-buttons ion-padding">
+            <ion-button (click)="chooseDifficulty.dismiss()" color="danger" expand="block" fill="clear" shape="round">
+              Cancel
+            </ion-button>
+            <ion-button (click)="startGame(false, chooseDifficulty)" color="primary" expand="block" fill="clear" shape="round">
+              Confirm
+            </ion-button>
+          </section>
+        </ion-list>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+  <!-- End Modal -->
+
+    <!-- Create Room Modal -->
+    <ion-modal #createRoom class="chooseDifficulty" trigger="createRoom">
+      <ng-template>
+        <ion-content>
+          <ion-toolbar>
+            <ion-title>Options</ion-title>
+          </ion-toolbar>
+          <ion-list class="ion-padding">
+            <section class="modal-input">
+              <ion-item>
+                <ion-label position="stacked">Username</ion-label>
+                <ion-input [(ngModel)]="username" placeholder="Enter an Username"></ion-input>
+              </ion-item>
+            </section>
+            <section class="modal-input">
+              <ion-item>
+                <ion-label position="stacked">Password</ion-label>
+                <ion-input [(ngModel)]="password" type="password" placeholder="******"></ion-input>
+              </ion-item>
+            </section>
+            <section class="modal-input ion-padding">
+              <span>Symbol</span>
+              <ion-segment [(ngModel)]="symbol" class="symbol" value="x">
+                <ion-segment-button value="x">
+                  <ion-label class="symbol-option" style="color: var(--ion-color-danger)">
+                    X
+                  </ion-label>
+                </ion-segment-button>
+                <ion-segment-button value="o">
+                  <ion-label class="symbol-option" style="color: var(--ion-color-primary)">
+                    O
+                  </ion-label>
+                </ion-segment-button>
+              </ion-segment>
+            </section>
+            <section class="modal-buttons ion-padding">
+              <ion-button (click)="createRoom.dismiss()" color="danger" expand="block" fill="clear" shape="round">
+                Cancel
+              </ion-button>
+              <ion-button (click)="startGame(false, chooseDifficulty)" color="primary" expand="block" fill="clear" shape="round">
+                Confirm
+              </ion-button>
+            </section>
+          </ion-list>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+    <!-- End Modal -->
+</ion-content>
